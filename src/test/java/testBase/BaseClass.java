@@ -38,7 +38,8 @@ public class BaseClass {
     }
 
     @AfterClass
-    public void tearDown(){
+    public void tearDown() throws InterruptedException{
+        Thread.sleep(3000);
         if(getDriver() != null){
             getDriver().quit();
         }
