@@ -12,6 +12,7 @@ import testBase.BaseClass;
 public class TC_003_LogoutTest extends BaseClass{
     @Test
     public void TC_LG_001_verifyLogoutFromMyAccount(){
+        logger.info("logout test startedddddd................................");
         HomePage homePage = new HomePage();
         homePage.clickMyAccount();
         homePage.clickLogin();

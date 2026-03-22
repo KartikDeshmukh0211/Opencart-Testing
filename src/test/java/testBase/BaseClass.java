@@ -8,11 +8,14 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ThreadGuard;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public class BaseClass {
     public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<>();
+    public Logger logger;
     public Properties p;
 
     public static void setDriver(WebDriver driverInstance){
@@ -29,6 +32,8 @@ public class BaseClass {
         FileInputStream file = new FileInputStream("./src/test/resources/config.properties");
         p = new Properties();
         p.load(file);
+
+        logger = LoggerFactory.getLogger(this.getClass());
 
         WebDriver driverInstance = new ChromeDriver();
         setDriver(driverInstance);
