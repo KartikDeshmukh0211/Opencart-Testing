@@ -16,6 +16,12 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//input[@value='Login']")
     WebElement btnLogin;
 
+    @FindBy(xpath = "//div[@class='form-group']//a[normalize-space()='Forgotten Password']")
+    WebElement lnkForgottonPassword;
+    
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    WebElement alertSuccess;
+
     public boolean isReturningCustomer(){
         return txtReturningCustomer.isDisplayed();
     }
@@ -30,5 +36,13 @@ public class LoginPage extends BasePage{
 
     public void clickLogin(){
         btnLogin.click();
+    }
+
+    public void clickForgottenPassword(){
+        lnkForgottonPassword.click();
+    }
+
+    public boolean isSuccess(){
+        return alertSuccess.isDisplayed();
     }
 }

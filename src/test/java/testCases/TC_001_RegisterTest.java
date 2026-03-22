@@ -1,5 +1,6 @@
 package testCases;
 
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,6 +11,10 @@ import pageObjects.RegisterPage;
 import testBase.BaseClass;
 
 public class TC_001_RegisterTest extends BaseClass{
+
+    // private static final Logger logger = LoggerFactory.getLogger(TC_001_RegisterTest.class);
+    // when u want to have logger static and also want to get name of each specific class, not the name of BaseClass.......
+    
     @Test
     public void TC_RF_001_verifyRegistrationWithMandatoryFields(){
         logger.info("***** TC_RF_001_verifyRegistrationWithMandatoryFields started *****");
