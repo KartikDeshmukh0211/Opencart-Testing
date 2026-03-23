@@ -6,6 +6,3 @@
 
 # IDE
 /.vscode/
-
-# Optional (if sensitive data)
-# /src/test/resources/config.properties

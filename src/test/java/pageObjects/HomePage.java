@@ -19,6 +19,12 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@id='slideshow0']")
     WebElement imgHomePage;
 
+    @FindBy(xpath = "//input[@placeholder='Search']")
+    WebElement txtInputSearch;
+
+    @FindBy(xpath = "//button[@class='btn btn-default btn-lg']")
+    WebElement btnSearch;
+
     public void clickMyAccount(){
         btnMyAccount.click();
     }
@@ -37,5 +43,14 @@ public class HomePage extends BasePage {
 
     public boolean isImgHomePagePresent(){
         return imgHomePage.isDisplayed();
+    }
+
+    public void enterSearchInput(String name){
+        txtInputSearch.clear();  
+        txtInputSearch.sendKeys(name);
+    }
+
+    public void clickSearch(){
+        btnSearch.click();
     }
 }

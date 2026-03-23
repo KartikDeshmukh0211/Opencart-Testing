@@ -2,6 +2,7 @@ package testBase;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -38,6 +39,7 @@ public class BaseClass {
         WebDriver driverInstance = new ChromeDriver();
         setDriver(driverInstance);
 
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         getDriver().get(p.getProperty("appURL"));
         getDriver().manage().window().maximize();
     }
