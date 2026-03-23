@@ -32,6 +32,15 @@ public class ProductDisplayPage  extends BasePage{
     @FindBy(className = "image-additional")
     List<WebElement> imgAdditionals;
 
+    @FindBy(xpath = "//button[@id='button-cart']")
+    WebElement btnAddToCart;
+
+    @FindBy(xpath = "//a[normalize-space()='shopping cart']")
+    WebElement lnkShopingCart;
+
+    @FindBy(xpath = "//div[@id='product-product']//div[@class='btn-group']//button[1]")
+    WebElement btnAddToWishList;
+
     public String getTootipOfProductCompare(){
         return btnProductCompare.getAttribute("data-original-title");
     }
@@ -84,5 +93,17 @@ public class ProductDisplayPage  extends BasePage{
 
     public List<WebElement> getAdditionalImages(){
         return imgAdditionals;
+    }
+
+    public void clickAddToCart(){
+        btnAddToCart.click();
+    }
+
+    public void clickLnkShoppingCart(){
+        lnkShopingCart.click();
+    }
+
+    public void clickAddToWishList(){
+        btnAddToWishList.click();
     }
 }

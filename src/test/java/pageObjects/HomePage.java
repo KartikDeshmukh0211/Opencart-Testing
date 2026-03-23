@@ -4,6 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    WebElement alertSuccess;
+    
     @FindBy(xpath = "//a[@title='My Account']")
     WebElement btnMyAccount;
 
@@ -24,6 +27,12 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//button[@class='btn btn-default btn-lg']")
     WebElement btnSearch;
+
+    @FindBy(xpath = "//a[normalize-space()='Qafox.com']")
+    WebElement companyLogo;
+
+    @FindBy(xpath = "//body/nav[@id='top']/div[@class='container']/div[@id='top-links']/ul[@class='list-inline']/li[3]")
+    WebElement btnWishList;
 
     public void clickMyAccount(){
         btnMyAccount.click();
@@ -52,5 +61,22 @@ public class HomePage extends BasePage {
 
     public void clickSearch(){
         btnSearch.click();
+    }
+
+    public void clickCompanyLogo(){
+        // by clicking on the logo, we can navigate back to the home page
+        companyLogo.click();
+    }
+
+    public void clickWishList(){
+        btnWishList.click();
+    }
+
+    public boolean isSuccess(){
+        try{
+            return alertSuccess.isDisplayed();
+        }catch(Exception e){
+            return false;
+        }
     }
 }
