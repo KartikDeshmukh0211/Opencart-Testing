@@ -13,6 +13,9 @@ public class WishListPage extends BasePage{
     @FindBy(xpath = "//a[normalize-space()='shopping cart']")
     WebElement lnkShoppingCart;
 
+    @FindBy(xpath = "//p[normalize-space()='Your wish list is empty.']")
+    WebElement txtWishListEmpty;
+
     public void clickAddToCart(){
         btnAddToCart.click();
     }
@@ -24,6 +27,14 @@ public class WishListPage extends BasePage{
     public boolean isSuccess(){
         try{
             return alertSuccess.isDisplayed();
+        }catch(Exception e){
+            return false;
+        }
+    }
+
+    public boolean isWishListEmpty(){
+        try{
+            return txtWishListEmpty.isDisplayed();
         }catch(Exception e){
             return false;
         }

@@ -41,6 +41,12 @@ public class ProductDisplayPage  extends BasePage{
     @FindBy(xpath = "//div[@id='product-product']//div[@class='btn-group']//button[1]")
     WebElement btnAddToWishList;
 
+    @FindBy(className = "image")
+    List<WebElement> allRelatedProducts;
+
+    @FindBy(xpath = "//a[normalize-space()='wish list']")
+    WebElement lnkWishList;
+
     public String getTootipOfProductCompare(){
         return btnProductCompare.getAttribute("data-original-title");
     }
@@ -105,5 +111,13 @@ public class ProductDisplayPage  extends BasePage{
 
     public void clickAddToWishList(){
         btnAddToWishList.click();
+    }
+
+    public List<WebElement> getRelatedProducts(){
+        return allRelatedProducts;
+    }
+
+    public void clickLnkWishList(){
+        lnkWishList.click();
     }
 }

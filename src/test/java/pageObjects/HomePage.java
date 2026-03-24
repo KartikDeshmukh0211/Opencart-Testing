@@ -34,6 +34,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//body/nav[@id='top']/div[@class='container']/div[@id='top-links']/ul[@class='list-inline']/li[3]")
     WebElement btnWishList;
 
+    @FindBy(xpath = "//nav[@id='top']//li[5]")
+    WebElement btnCheckout;
+
     public void clickMyAccount(){
         btnMyAccount.click();
     }
@@ -65,6 +68,7 @@ public class HomePage extends BasePage {
 
     public void clickCompanyLogo(){
         // by clicking on the logo, we can navigate back to the home page
+        waitForClickability(companyLogo); 
         companyLogo.click();
     }
 
@@ -78,5 +82,9 @@ public class HomePage extends BasePage {
         }catch(Exception e){
             return false;
         }
+    }
+
+    public void clickCheckout(){
+        btnCheckout.click();
     }
 }
