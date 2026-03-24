@@ -3,23 +3,16 @@ package pageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class OrderHistoryPage extends BasePage{
-    @FindBy(xpath = "//h1[normalize-space()='Order History']")
+public class OrderInformationPage extends BasePage{
+    @FindBy(xpath = "//h2[normalize-space()='Order History']")
     WebElement txtOrderHistory;
 
-    @FindBy(xpath = "//a[@class='btn btn-info']")
-    WebElement btnViewOrder;
-
-    public boolean istxtOrderHistoryPresnt(){
+    public boolean istxtOrderHistoryPresent(){
         try{
             waitForVisibility(txtOrderHistory);
             return txtOrderHistory.isDisplayed();
         }catch(Exception e){
             return false;
         }
-    }
-
-    public void clickViewOrderBtn(){
-        btnViewOrder.click();
     }
 }

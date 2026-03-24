@@ -22,6 +22,9 @@ public class AccountPage extends BasePage {
     @FindBy(xpath = "//a[normalize-space()='View your order history']")
     WebElement lnkViewYourOrderHistory;
 
+    @FindBy(xpath = "//a[@class='list-group-item'][normalize-space()='Order History']")
+    WebElement btnOrderHistory;
+
     public boolean istxtMyAccountPresent(){
         return txtMyAccount.isDisplayed();
     }
@@ -44,5 +47,9 @@ public class AccountPage extends BasePage {
 
     public void clickViewYourOrderHistory(){
         lnkViewYourOrderHistory.click();
+    }
+
+    public void clickOrderHistory(){
+        btnOrderHistory.click();
     }
 }
