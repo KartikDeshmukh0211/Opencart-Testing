@@ -8,11 +8,15 @@ import java.util.Properties;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ThreadGuard;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 public class BaseClass {
     public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<>();
@@ -28,7 +32,8 @@ public class BaseClass {
     }
 
     @BeforeClass
-    public void setup() throws IOException{
+    @Parameters({"os", "browser"})
+    public void setup(@Optional("windows") String os, @Optional("chrome") String br) throws IOException{
         //Loading properties...
         FileInputStream file = new FileInputStream("./src/test/resources/config.properties");
         p = new Properties();
@@ -36,7 +41,16 @@ public class BaseClass {
 
         logger = LoggerFactory.getLogger(this.getClass());
 
-        WebDriver driverInstance = new ChromeDriver();
+        // WebDriver driverInstance = new ChromeDriver();
+        WebDriver driverInstance;
+
+        switch(br.toLowerCase()){
+            case "chrome" : driverInstance = new ChromeDriver(); break;
+            case "edge" : driverInstance = new EdgeDriver(); break;
+            case "firefox" : driverInstance = new FirefoxDriver(); break;
+            default : System.out.println("Invalid Browser"); return;
+        }
+        
         setDriver(driverInstance);
 
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

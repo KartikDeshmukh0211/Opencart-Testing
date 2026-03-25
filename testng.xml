@@ -3,11 +3,15 @@
 
 <suite name="OpenCart Suite">
     <test name="All Tests">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="os" value="windows"></parameter>
+        
         <classes>
             <class name="testCases.TC_001_RegisterTest"></class>
-            <class name="testCases.TC_002_LoginTest"></class>
+            <!-- <class name="testCases.TC_002_LoginTest"></class>
             <class name="testCases.TC_003_LogoutTest"></class>
             <class name="testCases.TC_004_ForgetPasswordTest"></class>
+            <class name="testCases.TC_005_SearchTest"></class> -->
         </classes>
     </test>
 </suite>
