@@ -4,5 +4,11 @@
 # Logs
 /logs/
 
+# Screenshots
+/screenshots/
+
+# Reports
+/reports/
+
 # IDE
 /.vscode/

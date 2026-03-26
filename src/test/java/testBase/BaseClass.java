@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -65,17 +64,5 @@ public class BaseClass {
             getDriver().quit();
         }
         tdriver.remove();
-    }
-
-    public String randomString(){
-        return RandomStringUtils.secure().nextAlphabetic(6);
-    }
-
-    public String randomNumber(){
-        return RandomStringUtils.secure().nextNumeric(10);
-    }
-
-    public String randomAplhaNumric(){
-        return RandomStringUtils.secure().nextAlphanumeric(8);
     }
 }

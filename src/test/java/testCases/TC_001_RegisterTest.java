@@ -9,6 +9,7 @@ import pageObjects.AccountSuccessPage;
 import pageObjects.HomePage;
 import pageObjects.RegisterPage;
 import testBase.BaseClass;
+import utilities.RandomUtils;
 
 public class TC_001_RegisterTest extends BaseClass{
 
@@ -27,12 +28,12 @@ public class TC_001_RegisterTest extends BaseClass{
 
         RegisterPage registerPage = new RegisterPage();
         logger.info("Entering details.....");
-        registerPage.enterFirstName(randomString());
-        registerPage.enterLastName(randomString());
-        registerPage.enterEmail(randomAplhaNumric() + "@gmail.com");
-        registerPage.enterTelephone(randomNumber());
+        registerPage.enterFirstName(RandomUtils.randomString());
+        registerPage.enterLastName(RandomUtils.randomString());
+        registerPage.enterEmail(RandomUtils.randomAplhaNumric() + "@gmail.com");
+        registerPage.enterTelephone(RandomUtils.randomNumber());
 
-        String password = randomAplhaNumric();
+        String password = RandomUtils.randomAplhaNumric();
         registerPage.enterPassword(password);
         registerPage.enterConfirmPassword(password);
 
