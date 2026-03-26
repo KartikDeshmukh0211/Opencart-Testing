@@ -2,13 +2,19 @@ package testBase;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.lang.annotation.Retention;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ThreadGuard;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +38,7 @@ public class BaseClass {
 
     @BeforeClass(groups = {"smoke", "regression"})
     @Parameters({"os", "browser"})
-    public void setup(@Optional("windows") String os, @Optional("chrome") String br) throws IOException{
+    public void setup(@Optional("windows") String os, @Optional("chrome") String br) throws IOException, URISyntaxException{
         //Loading properties...
         FileInputStream file = new FileInputStream("./src/test/resources/config.properties");
         p = new Properties();
@@ -43,12 +49,40 @@ public class BaseClass {
         // WebDriver driverInstance = new ChromeDriver();
         WebDriver driverInstance;
 
-        switch(br.toLowerCase()){
-            case "chrome" : driverInstance = new ChromeDriver(); break;
-            case "edge" : driverInstance = new EdgeDriver(); break;
-            case "firefox" : driverInstance = new FirefoxDriver(); break;
-            default : System.out.println("Invalid Browser"); return;
+        if(p.getProperty("execution_env").equalsIgnoreCase("remote")){
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+
+            // selecting OS
+            if(os.equalsIgnoreCase("windows")){
+                capabilities.setPlatform(Platform.WIN11);
+            }else if(os.equalsIgnoreCase("mac")){
+                capabilities.setPlatform(Platform.MAC);
+            }else if(os.equalsIgnoreCase("linux")){
+                capabilities.setPlatform(Platform.LINUX);
+            }else{
+                System.out.println("NOT A MATCHING OS................");
+                return;
+            }
+            
+            // selecting Browser
+            switch(br.toLowerCase()){
+                case "chrome" : capabilities.setBrowserName("chrome"); break;
+                case "edge" : capabilities.setBrowserName("MicrosoftEdge"); break;
+                case "firefox" : capabilities.setBrowserName("firefox"); break;
+                default : System.out.println("Invalid Browser"); return;
+            }
+
+            driverInstance = new RemoteWebDriver(new URI("http://localhost:4444/wd/hub").toURL(), capabilities);
+            
+        }else{
+            switch(br.toLowerCase()){
+                case "chrome" : driverInstance = new ChromeDriver(); break;
+                case "edge" : driverInstance = new EdgeDriver(); break;
+                case "firefox" : driverInstance = new FirefoxDriver(); break;
+                default : System.out.println("Invalid Browser"); return;
+            }
         }
+        
         
         setDriver(driverInstance);
 
