@@ -8,7 +8,7 @@ import pageObjects.ShoppingCartPage;
 import testBase.BaseClass;
 
 public class TC_012_CheckoutTest extends BaseClass{
-    @Test
+    @Test(groups = {"smoke", "regression", "ecommerce"})
     public void TC_CO_001_verifyEmptyShoppingCartCheckout(){
         HomePage homePage = new HomePage();
         homePage.clickCheckout();

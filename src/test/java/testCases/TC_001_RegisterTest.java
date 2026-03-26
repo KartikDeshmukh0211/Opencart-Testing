@@ -15,7 +15,7 @@ public class TC_001_RegisterTest extends BaseClass{
     // private static final Logger logger = LoggerFactory.getLogger(TC_001_RegisterTest.class);
     // when u want to have logger static and also want to get name of each specific class, not the name of BaseClass.......
     
-    @Test
+    @Test(groups = {"regression", "auth"})
     public void TC_RF_001_verifyRegistrationWithMandatoryFields(){
         logger.info("***** TC_RF_001_verifyRegistrationWithMandatoryFields started *****");
         HomePage homePage = new HomePage();

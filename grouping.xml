@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="OpenCart Suite">
+    <groups>
+        <run>
+            <include name="smoke"></include>
+        </run>
+    </groups>
+
+    <test name="All Tests">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="os" value="windows"></parameter>
+
+        <classes>
+            <class name="testCases.TC_001_RegisterTest"></class>
+            <class name="testCases.TC_002_LoginTest"></class>
+            <class name="testCases.TC_003_LogoutTest"></class>
+            <class name="testCases.TC_004_ForgetPasswordTest"></class>
+            <class name="testCases.TC_005_SearchTest"></class>
+            <class name="testCases.TC_006_ProductCompareTest"></class>
+            <class name="testCases.TC_007_ProductDisplayTest"></class>
+            <class name="testCases.TC_008_AddToCartTest"></class>
+            <class name="testCases.TC_009_WishListTest"></class>
+            <class name="testCases.TC_010_ShoppingCartTest"></class>
+            <class name="testCases.TC_011_HomePageTest"></class>
+            <class name="testCases.TC_012_CheckoutTest"></class>
+            <class name="testCases.TC_013_MyAccountTest"></class>
+            <class name="testCases.TC_014_MyAccountInformationTest"></class>
+            <class name="testCases.TC_015_ChangePasswordTest"></class>
+            <class name="testCases.TC_016_AddressBookTest"></class>
+            <class name="testCases.TC_017_OrderHistoryPage"></class>
+            <class name="testCases.TC_018_OrderInformationTest"></class>
+        </classes>
+    </test>
+</suite>

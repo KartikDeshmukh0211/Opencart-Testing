@@ -10,7 +10,7 @@ import pageObjects.LoginPage;
 import testBase.BaseClass;
 
 public class TC_016_AddressBookTest extends BaseClass{
-    @Test
+    @Test(groups = {"regression", "account"})
     public void TC_AB_001_verifyAddBookPageNavFromAccPage(){
         HomePage homePage = new HomePage();
         homePage.clickMyAccount();

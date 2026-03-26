@@ -9,7 +9,7 @@ import pageObjects.LoginPage;
 import testBase.BaseClass;
 
 public class TC_013_MyAccountTest extends BaseClass{
-    @Test
+    @Test(groups = {"regression", "account"})
     public void TC_MA_001_verifyNavigationToMyAccountAfterLogin(){
         HomePage homePage = new HomePage();
         homePage.clickMyAccount();

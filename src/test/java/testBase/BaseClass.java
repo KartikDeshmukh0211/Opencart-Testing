@@ -31,7 +31,7 @@ public class BaseClass {
         return tdriver.get();
     }
 
-    @BeforeClass
+    @BeforeClass(groups = {"smoke", "regression"})
     @Parameters({"os", "browser"})
     public void setup(@Optional("windows") String os, @Optional("chrome") String br) throws IOException{
         //Loading properties...
@@ -58,7 +58,7 @@ public class BaseClass {
         getDriver().manage().window().maximize();
     }
 
-    @AfterClass
+    @AfterClass(groups = {"smoke", "regression"})
     public void tearDown() throws InterruptedException{
         Thread.sleep(3000);
         if(getDriver() != null){

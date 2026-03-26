@@ -10,7 +10,7 @@ import pageObjects.ShoppingCartPage;
 import testBase.BaseClass;
 
 public class TC_010_ShoppingCartTest extends BaseClass{
-    @Test
+    @Test(groups = {"smoke", "regression", "ecommerce"})
     public void TC_SC_001_verifyShoppingCartFromSuccessMsg(){
         HomePage homePage = new HomePage();
         String validProduct = "iMac";

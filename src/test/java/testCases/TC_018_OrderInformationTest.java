@@ -11,7 +11,7 @@ import pageObjects.OrderInformationPage;
 import testBase.BaseClass;
 
 public class TC_018_OrderInformationTest extends BaseClass{
-    @Test
+    @Test(groups = {"regression", "order"})
     public void TC_OI_001_verifyDetailsOfOrderInformationPage(){
         HomePage homePage = new HomePage();
         homePage.clickMyAccount();

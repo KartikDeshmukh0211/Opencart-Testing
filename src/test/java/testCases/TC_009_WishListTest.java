@@ -14,7 +14,7 @@ import pageObjects.WishListPage;
 import testBase.BaseClass;
 
 public class TC_009_WishListTest extends BaseClass{
-    @Test
+    @Test(groups = {"regression", "ecommerce"})
     public void TC_WL_001_verifyWishListFromRelatedProduts(){
         HomePage homePage = new HomePage();
         homePage.clickMyAccount();

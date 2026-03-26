@@ -12,7 +12,7 @@ import pageObjects.SearchResultsPage;
 import testBase.BaseClass;
 
 public class TC_007_ProductDisplayTest extends BaseClass{
-    @Test
+    @Test(groups = {"regression", "search"})
     public void TC_PDP_001_verifyProductThumbnails() throws InterruptedException{
         HomePage homePage = new HomePage();
         String validProduct = "iMac";

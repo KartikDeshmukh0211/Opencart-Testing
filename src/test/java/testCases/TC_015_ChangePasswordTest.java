@@ -10,7 +10,7 @@ import pageObjects.LoginPage;
 import testBase.BaseClass;
 
 public class TC_015_ChangePasswordTest extends BaseClass{
-    @Test
+    @Test(groups = {"regression", "account"})
     public void TC_CP_001_verifyChangePasswordPageNavFromMyAcc(){
         HomePage homePage = new HomePage();
         homePage.clickMyAccount();

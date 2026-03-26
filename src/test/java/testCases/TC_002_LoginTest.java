@@ -9,7 +9,7 @@ import pageObjects.LoginPage;
 import testBase.BaseClass;
 
 public class TC_002_LoginTest extends BaseClass {
-    @Test
+    @Test(groups = {"smoke", "regression", "auth"})
     public void TC_LF_001_verifyLoginWithValidCredentials(){
         HomePage homePage = new HomePage();
         homePage.clickMyAccount();

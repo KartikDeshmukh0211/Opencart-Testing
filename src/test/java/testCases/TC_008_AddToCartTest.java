@@ -12,7 +12,7 @@ import pageObjects.WishListPage;
 import testBase.BaseClass;
 
 class TC_008_AddToCartTest extends BaseClass {
-    @Test
+    @Test(groups = {"smoke", "regression", "ecommerce"})
     public void TC_ATC_001_verifyAddToCartFromDisplayPage(){
         HomePage homePage = new HomePage();
         String validProduct = "iMac";
@@ -32,7 +32,7 @@ class TC_008_AddToCartTest extends BaseClass {
         Assert.assertTrue(shoppingCartPage.istxtShoppingCartPresent(), "Shopping Cart is not displayed");
     }
     
-    @Test
+    @Test(groups = {"regression", "ecommerce"})
     public void TC_ATC_002_verifyAddToCartFromWishList(){
         HomePage homePage = new HomePage();
         homePage.clickMyAccount();

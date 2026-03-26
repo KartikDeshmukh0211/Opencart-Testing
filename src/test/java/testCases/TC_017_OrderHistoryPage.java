@@ -10,7 +10,7 @@ import pageObjects.OrderHistoryPage;
 import testBase.BaseClass;
 
 public class TC_017_OrderHistoryPage extends BaseClass{
-    @Test
+    @Test(groups = {"regression", "order"})
     public void TC_OH_001_verifyOHPNavFromMyAcc(){
         HomePage homePage = new HomePage();
         homePage.clickMyAccount();

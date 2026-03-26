@@ -10,7 +10,7 @@ import pageObjects.ShoppingCartPage;
 import testBase.BaseClass;
 
 public class TC_011_HomePageTest extends BaseClass{
-    @Test
+    @Test(groups = {"smoke", "regression", "ui"})
     public void TC_HP_001_verifyNavigationFromShoppingCartPage(){
         HomePage homePage = new HomePage();
         String validProduct = "iMac";

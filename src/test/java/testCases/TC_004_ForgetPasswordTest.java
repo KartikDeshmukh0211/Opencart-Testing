@@ -10,7 +10,7 @@ import pageObjects.LoginPage;
 import testBase.BaseClass;
 
 public class TC_004_ForgetPasswordTest extends BaseClass{
-    @Test
+    @Test(groups = {"regression", "auth"})
     public void TC_FP_001_verifyUserCanResetPassword(){
         logger.info("***** TC_004_ForgetPasswordTest started *****");
         logger.info("Navigating to Login Page");

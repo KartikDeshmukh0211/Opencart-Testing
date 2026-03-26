@@ -10,7 +10,7 @@ import pageObjects.LoginPage;
 import testBase.BaseClass;
 
 public class TC_003_LogoutTest extends BaseClass{
-    @Test
+    @Test(groups = {"regression", "auth"})
     public void TC_LG_001_verifyLogoutFromMyAccount(){
         logger.info("logout test startedddddd................................");
         HomePage homePage = new HomePage();
@@ -32,7 +32,7 @@ public class TC_003_LogoutTest extends BaseClass{
         Assert.assertTrue(homePage.isImgHomePagePresent(), "Not present on Homepage");
     }
 
-    @Test
+    @Test(groups = {"regression", "auth"})
     public void TC_LG_002_verifyLogoutFromRightColumn(){
         HomePage homePage = new HomePage();
         homePage.clickMyAccount();

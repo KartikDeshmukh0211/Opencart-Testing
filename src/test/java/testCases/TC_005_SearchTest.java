@@ -9,7 +9,7 @@ import pageObjects.SearchResultsPage;
 import testBase.BaseClass;
 
 public class TC_005_SearchTest extends BaseClass{
-    @Test
+    @Test(groups = {"smoke", "regression", "search"})
     public void TC_SF_001_verifySearchWithValidProductName(){
         logger.info("***** TC_SF_001_verifySearchWithValidProductName started*****");
 
@@ -28,7 +28,7 @@ public class TC_005_SearchTest extends BaseClass{
 
     // It is the negative test case..
     // we will enter worng data...
-    @Test
+    @Test(groups = {"regression", "search"})
     public void TC_SF_002_verifySearchWithInvaildProductName(){
         logger.info("***** TC_SF_002_verifySearchWithInvaildProductName started*****");
 
@@ -45,7 +45,7 @@ public class TC_005_SearchTest extends BaseClass{
         logger.info("***** TC_SF_002_verifySearchWithInvaildProductName ended*****\n");
     }
 
-    @Test
+    @Test(groups = {"regression", "search"})
     public void TC_SF_003_verifySearchWithNoProdctName(){
         logger.info("***** TC_SF_003_verifySearchWithNoProdctName started*****");
 
@@ -61,7 +61,7 @@ public class TC_005_SearchTest extends BaseClass{
         logger.info("***** TC_SF_003_verifySearchWithNoProdctName ended*****\n");
     }
 
-    @Test
+    @Test(groups = {"regression", "search"})
     public void TC_SF_004_verifySearchAfterLogin(){
         logger.info("***** TC_SF_004_verifySearchAfterLogin started*****");
 
@@ -90,7 +90,7 @@ public class TC_005_SearchTest extends BaseClass{
         logger.info("***** TC_SF_004_verifySearchAfterLogin ended*****\n");
     }
 
-    @Test
+    @Test(groups = {"regression", "search"})
     public void TC_SF_005_verifySearchWithMultipleProducts(){
         logger.info("***** TC_SF_005_verifySearchWithMultipleProducts started*****");
 

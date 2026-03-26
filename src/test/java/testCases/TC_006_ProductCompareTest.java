@@ -10,7 +10,7 @@ import pageObjects.SearchResultsPage;
 import testBase.BaseClass;
 
 public class TC_006_ProductCompareTest extends BaseClass{
-    @Test
+    @Test(groups = {"regression", "search"})
     public void TC_PC_001_verifyCompareFromProductDisplayPage(){
         logger.info("***** TC_006_ProductCompareTest started*****");
 
